@@ -3,7 +3,7 @@ extends Node2D
 class_name Ball
 # Variables for the ball's tier and max tier
 var tier: int = 1
-var max_tier: int = 5  # Define the maximum tier for the balls
+var max_tier: int = 20  # Define the maximum tier for the balls
 var is_merging = false
 # Reference the Sprite and CollisionShape2D nodes
 @onready var sprite = $RigidBody2D/CollisionShape2D/Sprite2D
@@ -16,7 +16,7 @@ func _ready():
 	tier_text.add_text(String.num_int64(tier))
 	var scale_factor = 1 + (tier - 1)
 	collision_shape.scale = Vector2(scale_factor, scale_factor)
-	this_body.mass = 25*tier
+	this_body.mass = 2*(tier*tier)
 	
 # Function to set the ball's tier and update its visuals
 func set_tier(tier_value: int):
@@ -31,7 +31,7 @@ func set_tier(tier_value: int):
 
 # Function to merge with another ball
 func merge_with(other_ball):
-	if tier < max_tier and not is_merging:
+	if tier < max_tier and not is_merging and not other_ball.get_parent().is_merging:
 		is_merging = true
 		other_ball.get_parent().is_merging = true
 		print_debug('merge')
