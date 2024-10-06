@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq5lnrhshp2nw"]
+
+[ext_resource type="Texture2D" uid="uid://b3o6sw21ppp5a" path="res://source/basket.png" id="1_ywngw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t85ko"]
+size = Vector2(21, 323.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ore8"]
+size = Vector2(493, 20)
+
+[node name="StaticBody2D2" type="StaticBody2D"]
+position = Vector2(332, 229)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(248, 136)
+scale = Vector2(1.12, 1.12)
+texture = ExtResource("1_ywngw")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(0, 127.75)
+shape = SubResource("RectangleShape2D_t85ko")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(243.5, 278)
+shape = SubResource("RectangleShape2D_2ore8")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
+position = Vector2(494, 128)
+shape = SubResource("RectangleShape2D_t85ko")

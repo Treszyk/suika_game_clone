@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7vv8ykstwo48"]
+
+[ext_resource type="Script" path="res://source/ball.gd" id="1_adbva"]
+[ext_resource type="Texture2D" uid="uid://vlrtueod035n" path="res://source/ball.png" id="2_ti0xp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1amag"]
+friction = 0.25
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sujd3"]
+
+[node name="Ball" type="Node2D" groups=["Balls"]]
+position = Vector2(257, 135.39)
+script = ExtResource("1_adbva")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["Balls"]]
+physics_material_override = SubResource("PhysicsMaterial_1amag")
+max_contacts_reported = 10
+contact_monitor = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RigidBody2D"]
+offset_left = -4.0
+offset_top = -12.0
+offset_right = 36.0
+offset_bottom = 28.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_sujd3")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D/CollisionShape2D"]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_ti0xp")
+
+[connection signal="body_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_body_entered"]
