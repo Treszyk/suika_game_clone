@@ -14,7 +14,8 @@ var is_merging = false
 func _ready():
 	set_tier(tier)  # Initialize the ball with the default tier
 	tier_text.add_text(String.num_int64(tier))
-	var scale_factor = 1 + (tier - 1)
+	var scale_factor = 2 + (tier - 1)
+	print_debug(scale_factor)
 	collision_shape.scale = Vector2(scale_factor, scale_factor)
 	this_body.mass = 2*(tier*tier)
 	
@@ -23,8 +24,6 @@ func set_tier(tier_value: int):
 	tier = tier_value
 	
 	# Scale the entire Ball node (Node2D) based on its tier
-	var scale_factor = 1 + (tier - 1) * 0.2
-	self.scale = Vector2(scale_factor, scale_factor)
 	
 	# Optionally change the sprite texture based on the tier (if you have different textures)
 	#sprite.texture = load("res://textures/ball_tier_%d.png" % tier)
@@ -39,7 +38,7 @@ func merge_with(other_ball):
 		
 		# Create a new ball of the next tier
 		var new_ball = preload("res://source/ball.tscn").instantiate()  # Assuming BallScene is preloaded
-		new_ball.global_position = this_body.global_position  # Place the new ball at the same position
+		new_ball.global_position = other_ball.global_position  # Place the new ball at the same position
 		new_ball.set_tier(new_tier)
 		get_parent().add_child(new_ball)
 		print_debug(new_ball.tier, new_ball.position)
