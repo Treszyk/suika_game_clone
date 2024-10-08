@@ -1,30 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq5lnrhshp2nw"]
+[gd_scene load_steps=2 format=3 uid="uid://cq5lnrhshp2nw"]
 
 [ext_resource type="Texture2D" uid="uid://b3o6sw21ppp5a" path="res://source/basket.png" id="1_ywngw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t85ko"]
-size = Vector2(21, 323.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ore8"]
-size = Vector2(493, 20)
-
 [node name="StaticBody2D2" type="StaticBody2D"]
 position = Vector2(990, 426)
-scale = Vector2(1.335, 1.335)
+scale = Vector2(2.285, 2.285)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 13.3118)
-scale = Vector2(1.12, 1.12)
+position = Vector2(-1.31291, 41.5755)
+scale = Vector2(0.486849, 1.25786)
 texture = ExtResource("1_ywngw")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2(-247, 0.311775)
-shape = SubResource("RectangleShape2D_t85ko")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
-position = Vector2(0, 153.477)
-shape = SubResource("RectangleShape2D_2ore8")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
-position = Vector2(246, 0.311775)
-shape = SubResource("RectangleShape2D_t85ko")

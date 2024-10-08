@@ -7,6 +7,6 @@
 script = ExtResource("1_fr8pn")
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("2_qu0gb")]
-position = Vector2(402, 356)
+position = Vector2(974, 495)
 
 [connection signal="ready" from="." to="." method="_on_ready"]

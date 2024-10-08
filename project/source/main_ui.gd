@@ -19,4 +19,8 @@ func resize_event():
 	basket.position = Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)
 func _on_ready():
 	get_tree().get_root().size_changed.connect(resize_event)
+	if OS.has_feature("mobile"):
+		get_tree().root.content_scale_factor = 2
+	elif OS.has_feature("pc"):
+		get_tree().root.content_scale_factor = 1
 	resize_event()
